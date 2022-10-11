@@ -104,12 +104,15 @@ export const changePageNumber = function(newPageNumber) {
 export const searchRecipeByID = async function(id) {
     try {
         
-        let {recipe} = (await AJAX(`${API_ENDPOINT}/${id}`)).data;
-        recipe = JSONtoRecipe(recipe, false);
+        let recipe = (await AJAX(`${API_ENDPOINT}/${id}`));
+        console.log(recipe);
+
+        // recipe = JSONtoRecipe(recipe, false);
         
         
         state.recipe = recipe;
         state.recipe.bookmarked = state.bookmarks.some(b => b.id == recipe.id);
+        return recipe;
     } catch(err) {
         err.message = 'Could not load the recipe';
         throw err;

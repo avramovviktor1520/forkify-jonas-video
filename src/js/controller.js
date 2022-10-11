@@ -38,7 +38,7 @@ const controlSearchRecipes = async function(query) {
   }
 }
 
-const controlSearchRecipe = async function() {
+const controlSelectRecipe = async function() {
   console.log(23);
 }
 // const controlSelectRecipe = async function(id) {

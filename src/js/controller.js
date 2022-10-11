@@ -40,29 +40,26 @@ const controlSearchRecipes = async function(query) {
   }
 }
 
-const controlSelectRecipe = async function() {
-  console.log(23);
 
-}
-// const controlSelectRecipe = async function(id) {
-//   try {
-//     recipeView.renderSpinner();
-//     await modelAPI.searchRecipeByID(id);
-//     recipeView.render(modelAPI.state.recipe);
+const controlSelectRecipe = async function(id) {
+  try {
+    recipeView.renderSpinner();
+    await modelAPI.searchRecipeByID(id);
+    recipeView.render(modelAPI.state.recipe);
     
-//     if(modelAPI.state.search.results.length) {
-//       resultsView.update(
-//         modelAPI.getResultsForPage(modelAPI.state.search.results, modelAPI.state.search.page)
-//       );
-//     }
+    if(modelAPI.state.search.results.length) {
+      resultsView.update(
+        modelAPI.getResultsForPage(modelAPI.state.search.results, modelAPI.state.search.page)
+      );
+    }
 
-//     modelAPI.state.bookmarks.length && bookmarksView.render(modelAPI.state.bookmarks);
+    modelAPI.state.bookmarks.length && bookmarksView.render(modelAPI.state.bookmarks);
 
-//   } catch(err) {
-//     console.log(err);
-//     recipeView.renderError(err.message);
-//   }
-// }
+  } catch(err) {
+    console.log(err);
+    recipeView.renderError(err.message);
+  }
+}
 
 const controlUpdateServings = function(increase) {
   modelAPI.updateServings(increase);

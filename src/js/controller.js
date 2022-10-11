@@ -85,7 +85,6 @@ function init() {
   recipeView.addHandlerBookmarkRecipe(controlAddBookmark);
   recipeView.addHandlerUpdateServings(controlUpdateServings);
   addRecipeView.addHandlerAddRecipe(controlAddRecipe);
-  console.log("Welcome to the Repo!");
 }
 init();
 

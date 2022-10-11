@@ -111,7 +111,7 @@ export const searchRecipeByID = async function(id) {
         
         
         state.recipe = recipe;
-        state.recipe.bookmarked = state.bookmarks.some(b => b.id == recipe.id);
+        // state.recipe.bookmarked = state.bookmarks.some(b => b.id == recipe.id);
         return recipe;
     } catch(err) {
         err.message = 'Could not load the recipe';

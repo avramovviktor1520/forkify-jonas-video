@@ -37,6 +37,8 @@ export class View {
         this._parentElement.insertAdjacentHTML('afterbegin', msg);
     }
 
+    
+
     update(data) {
         if(!data || (Array.isArray(data) && !data.length)) return;
 

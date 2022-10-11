@@ -3,6 +3,8 @@ import 'regenerator-runtime';
 
 import * as modelAPI from './model.js';
 
+window.m = modelAPI;
+
 import searchView from './Views/searchView';
 import resultsView from './Views/resultsView.js';
 import paginationView from './Views/paginationView.js';
@@ -40,6 +42,7 @@ const controlSearchRecipes = async function(query) {
 
 const controlSelectRecipe = async function() {
   console.log(23);
+
 }
 // const controlSelectRecipe = async function(id) {
 //   try {

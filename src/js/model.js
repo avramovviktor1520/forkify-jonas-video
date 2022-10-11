@@ -14,7 +14,7 @@ export const state = {
         page:1,
         totalPages: null
     },
-    bookmarks: JSON.parse(localStorage.getItem('bookmarks'))
+    bookmarks: JSON.parse(localStorage.getItem('bookmarks')) ?? []
 }
 
 const JSONtoRecipe = function(json, short = true) {

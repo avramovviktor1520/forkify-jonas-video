@@ -44,7 +44,9 @@ const controlSearchRecipes = async function(query) {
 const controlSelectRecipe = async function(id) {
   try {
     recipeView.renderSpinner();
+    //1!!
     await modelAPI.searchRecipeByID(id);
+    //2!!
     recipeView.render(modelAPI.state.recipe);
     
     if(modelAPI.state.search.results.length) {

@@ -14,7 +14,7 @@ export const state = {
         page:1,
         totalPages: null
     },
-    bookmarks: JSON.parse(localStorage.getItem('bookmarks'))
+    bookmarks: JSON.parse(localStorage.getItem('bookmarks')) ?? []
 }
 
 const JSONtoRecipe = function(json, short = true) {
@@ -104,15 +104,11 @@ export const changePageNumber = function(newPageNumber) {
 export const searchRecipeByID = async function(id) {
     try {
         
-        let recipe = (await AJAX(`${API_ENDPOINT}/${id}`));
-        console.log(recipe);
-
-        // recipe = JSONtoRecipe(recipe, false);
-        
+        let {recipe} = (await AJAX(`${API_ENDPOINT}/${id}`)).data;
+        recipe = JSONtoRecipe(recipe, false);
         
         state.recipe = recipe;
-        // state.recipe.bookmarked = state.bookmarks.some(b => b.id == recipe.id);
-        return recipe;
+        state.recipe.bookmarked = state.bookmarks.some(b => b.id == recipe.id);
     } catch(err) {
         err.message = 'Could not load the recipe';
         throw err;
